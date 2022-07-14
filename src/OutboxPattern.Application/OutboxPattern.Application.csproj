@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\OutboxPattern.Domain\OutboxPattern.Domain.csproj" />
+        <ProjectReference Include="..\OutboxPattern.Infrastructure\OutboxPattern.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
