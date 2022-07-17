@@ -1,8 +1,6 @@
-﻿using MediatR;
-
-namespace OutboxPattern.Domain.Events
+﻿namespace OutboxPattern.Domain.Events
 {
-    public class OrderPlacedDomainEvent : INotification
+    public class OrderPlacedDomainEvent : BaseDomainEvent
     {
         public OrderPlacedDomainEvent(
             Guid orderId,

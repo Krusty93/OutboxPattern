@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OutboxPattern.Infrastructure;
 
@@ -11,9 +12,10 @@ using OutboxPattern.Infrastructure;
 namespace OutboxPattern.Infrastructure.Migrations
 {
     [DbContext(typeof(OutboxDbContext))]
-    partial class OutboxDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220716143115_Outbox")]
+    partial class Outbox
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,9 +74,6 @@ namespace OutboxPattern.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OccurredOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ProcessedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Type")

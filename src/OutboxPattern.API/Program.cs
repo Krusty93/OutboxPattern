@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OutboxPattern.Application;
 using OutboxPattern.Infrastructure;
+using OutboxPattern.Infrastructure.Quartz;
+using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +28,27 @@ builder.Services.AddSwaggerGen(opt =>
 });
 
 builder.Services.AddControllers();
+
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+
+    var jobKey = new JobKey("InboxProcessor");
+
+    q.AddJob<ProcessOutboxJob>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(t => t
+        .ForJob(jobKey)
+        .WithIdentity("InboxProcessor-trigger")
+        .StartNow()
+        .WithCronSchedule("0/15 * * ? * *")
+        .WithDescription("cron trigger to read messages from outbox"));
+});
+
+builder.Services.AddQuartzServer(opt =>
+{
+    opt.WaitForJobsToComplete = true;
+});
 
 var app = builder.Build();
 

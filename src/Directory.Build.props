@@ -1,14 +1,15 @@
 <Project>
+
   <PropertyGroup>
-   <Company>Flowe</Company>
-   <Authors>Platform Team</Authors>
-   <Copyright>© Copyright Flowe</Copyright>
-   <NeutralLanguage>en</NeutralLanguage>
-   <EnableNETAnalyzer>True</EnableNETAnalyzer>
-   <AnalysisLevel>latest</AnalysisLevel> 
-   <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-   <AllEnabledByDefault>True</AllEnabledByDefault>
-   <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Company>Flowe SpA SB</Company>
+    <Authors>SRE</Authors>
+    <Copyright>Copyright © Flowe $([System.DateTime]::Now.ToString('yyyy'))</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <EnableNETAnalyzer>True</EnableNETAnalyzer>
+    <AnalysisLevel>latest</AnalysisLevel> 
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AllEnabledByDefault>True</AllEnabledByDefault>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
 
 </Project>
