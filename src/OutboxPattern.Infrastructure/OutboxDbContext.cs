@@ -11,16 +11,13 @@ namespace OutboxPattern.Infrastructure
     public class OutboxDbContext : BaseDbContext, IUnitOfWork
     {
         private readonly IMediator _mediator;
-        private readonly IServiceProvider _serviceProvider;
 
         public OutboxDbContext(
             DbContextOptions<OutboxDbContext> opt,
-            IMediator mediator,
-            IServiceProvider serviceProvider)
+            IMediator mediator)
             : base(opt, timeStampFieldName: "TimeStampUTC")
         {
             _mediator = mediator;
-            _serviceProvider = serviceProvider;
         }
 
         public DbSet<Product> Products { get; set; }
@@ -39,7 +36,7 @@ namespace OutboxPattern.Infrastructure
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
         {
-            await _mediator.DispatchDomainEventsAsync(this, _serviceProvider);
+            await _mediator.DispatchDomainEventsAsync(this);
 
             int result = await base.SaveChangesAsync(cancellationToken);
 
@@ -56,7 +53,7 @@ namespace OutboxPattern.Infrastructure
             var optionsBuilder = new DbContextOptionsBuilder<OutboxDbContext>();
             optionsBuilder.UseSqlServer(cs);
 
-            return new OutboxDbContext(optionsBuilder.Options, null, null);
+            return new OutboxDbContext(optionsBuilder.Options, null);
         }
     }
 }

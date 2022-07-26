@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
 using OutboxPattern.Domain.Events;
 using OutboxPattern.Domain.Models;
 using OutboxPattern.Domain.Notifications;
@@ -13,8 +12,7 @@ namespace OutboxPattern.Infrastructure
     {
         public static async Task DispatchDomainEventsAsync(
             this IMediator mediator,
-            OutboxDbContext dbContext,
-            IServiceProvider serviceProvider)
+            OutboxDbContext dbContext)
         {
             var domainEntities = dbContext.ChangeTracker
                 .Entries<DomainEventsBasedObject>()
@@ -37,14 +35,6 @@ namespace OutboxPattern.Infrastructure
                 Type notificationType = assembly.GetType(notificationTypeName);
 
                 object domainNotification = Activator.CreateInstance(type: notificationType, args: domainEvent);
-
-                using var scope = serviceProvider.CreateScope();
-                //object domainNotification = scope.ServiceProvider.GetService(domainNotificationWithGenericType);
-
-                //var domainNotification = _scope.ResolveOptional(domainNotificationWithGenericType, new List<Parameter>
-                //{
-                //    new NamedParameter("domainEvent", domainEvent)
-                //});
 
                 if (domainNotification != null)
                 {
@@ -70,7 +60,6 @@ namespace OutboxPattern.Infrastructure
 
                 // DO NOT FORGET TO SERIALIZE AS OBJECT
                 var data = JsonSerializer.Serialize<object>(domainEventNotification);
-                //var data = JsonConvert.SerializeObject(domainEventNotification);
 
                 OutboxMessage outboxMessage = OutboxMessage.Create(
                     domainEventNotification.DomainEvent.OccurredOn,
