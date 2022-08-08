@@ -7,7 +7,7 @@ namespace OutboxPattern.Application.Commands
     {
         [JsonConstructor]
         public CreateOrderCommand(
-            string shippingAddress,
+            ShippingAddressDto shippingAddress,
             Guid productId,
             int quantity)
         {
@@ -17,12 +17,27 @@ namespace OutboxPattern.Application.Commands
         }
 
         [JsonPropertyName("shippingAddress")]
-        public string ShippingAddress { get; }
+        public ShippingAddressDto ShippingAddress { get; }
 
         [JsonPropertyName("productId")]
         public Guid ProductId { get; }
 
         [JsonPropertyName("quantity")]
         public int Quantity { get; }
+    }
+
+    public class ShippingAddressDto
+    {
+        [JsonPropertyName("street")]
+        public string Street { get; set; }
+
+        [JsonPropertyName("number")]
+        public int Number { get; set; }
+
+        [JsonPropertyName("city")]
+        public string City { get; set; }
+
+        public override string ToString() =>
+            $"{Street} {Number}, {City}";
     }
 }

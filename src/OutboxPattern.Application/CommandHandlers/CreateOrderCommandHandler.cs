@@ -25,7 +25,7 @@ namespace OutboxPattern.Application.CommandHandlers
             var order = Order.Create(
                 product.Price,
                 request.Quantity,
-                request.ShippingAddress,
+                request.ShippingAddress.ToString(),
                 request.ProductId);
 
             await _orderRepository.CreateOrderAsync(order);

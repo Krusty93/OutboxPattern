@@ -7,6 +7,7 @@ namespace OutboxPattern.API.Controllers
 {
     [ApiController]
     [Route("order")]
+    [ApiExplorerSettings(GroupName = "Group1")]
     [Produces(System.Net.Mime.MediaTypeNames.Application.Json)]
     [Consumes(System.Net.Mime.MediaTypeNames.Application.Json)]
     public class OrderController : ControllerBase
