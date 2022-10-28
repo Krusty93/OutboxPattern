@@ -3,18 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutboxPattern.API", "OutboxPattern.API\OutboxPattern.API.csproj", "{7B73BE4E-F30A-4A43-A4DC-7F0D72726BCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutboxPattern.API", "OutboxPattern.API\OutboxPattern.API.csproj", "{7B73BE4E-F30A-4A43-A4DC-7F0D72726BCA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0DA1F90-A5D2-4542-860A-ACC90E031836}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutboxPattern.Application", "OutboxPattern.Application\OutboxPattern.Application.csproj", "{2C3388B9-1481-4F0C-A9A5-EBF3D13734C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutboxPattern.Application", "OutboxPattern.Application\OutboxPattern.Application.csproj", "{2C3388B9-1481-4F0C-A9A5-EBF3D13734C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutboxPattern.Domain", "OutboxPattern.Domain\OutboxPattern.Domain.csproj", "{11A3AA97-C8C3-4B89-9753-9F871BC54A06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutboxPattern.Domain", "OutboxPattern.Domain\OutboxPattern.Domain.csproj", "{11A3AA97-C8C3-4B89-9753-9F871BC54A06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutboxPattern.Infrastructure", "OutboxPattern.Infrastructure\OutboxPattern.Infrastructure.csproj", "{2149C0F8-E5A8-4F7A-B1D1-867B7155616E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutboxPattern.Infrastructure", "OutboxPattern.Infrastructure\OutboxPattern.Infrastructure.csproj", "{2149C0F8-E5A8-4F7A-B1D1-867B7155616E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutboxPattern.FunctionApp", "OutboxPattern.FunctionApp\OutboxPattern.FunctionApp.csproj", "{81000241-E5E6-4A23-B28C-3F74A1121DE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +41,10 @@ Global
 		{2149C0F8-E5A8-4F7A-B1D1-867B7155616E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2149C0F8-E5A8-4F7A-B1D1-867B7155616E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2149C0F8-E5A8-4F7A-B1D1-867B7155616E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81000241-E5E6-4A23-B28C-3F74A1121DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81000241-E5E6-4A23-B28C-3F74A1121DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81000241-E5E6-4A23-B28C-3F74A1121DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81000241-E5E6-4A23-B28C-3F74A1121DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
